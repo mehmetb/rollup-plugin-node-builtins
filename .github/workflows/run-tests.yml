@@ -20,6 +20,7 @@ on:
       - build-constants.js
       - .babelrc
   workflow_dispatch:
+  workflow_call:
 
 jobs:
   build:
