@@ -1165,6 +1165,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mehmetb/rollup-plugin-node-builtins@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@mehmetb/rollup-plugin-node-builtins@workspace:."
+  dependencies:
+    "@babel/core": "npm:^7.15.0"
+    "@babel/preset-env": "npm:^7.26.9"
+    "@rollup/plugin-babel": "npm:^6.0.4"
+    browserify-fs: "npm:^1.0.0"
+    buffer-es6: "npm:^4.9.3"
+    crypto-browserify: "npm:^3.12.1"
+    debug: "npm:^4.4.0"
+    mocha: "npm:^11.1.0"
+    process-es6: "npm:^0.11.6"
+    rollup: "npm:^4.34.7"
+    rollup-plugin-node-globals: "npm:^1.4.0"
+    serve: "npm:^14.2.4"
+  languageName: unknown
+  linkType: soft
+
 "@npmcli/agent@npm:^3.0.0":
   version: 3.0.0
   resolution: "@npmcli/agent@npm:3.0.0"
@@ -3816,25 +3835,6 @@ __metadata:
   checksum: 10/006accc40578ee2beae382757c4ce2908a826b27e2b079efdcd2959ee544ddf210b7b5d7d5e80467807604244e7388427330f5c6d4cd61e6edaddc5773ccc393
   languageName: node
   linkType: hard
-
-"rollup-plugin-node-builtins@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "rollup-plugin-node-builtins@workspace:."
-  dependencies:
-    "@babel/core": "npm:^7.15.0"
-    "@babel/preset-env": "npm:^7.26.9"
-    "@rollup/plugin-babel": "npm:^6.0.4"
-    browserify-fs: "npm:^1.0.0"
-    buffer-es6: "npm:^4.9.3"
-    crypto-browserify: "npm:^3.12.1"
-    debug: "npm:^4.4.0"
-    mocha: "npm:^11.1.0"
-    process-es6: "npm:^0.11.6"
-    rollup: "npm:^4.34.7"
-    rollup-plugin-node-globals: "npm:^1.4.0"
-    serve: "npm:^14.2.4"
-  languageName: unknown
-  linkType: soft
 
 "rollup-plugin-node-globals@npm:^1.4.0":
   version: 1.4.0
