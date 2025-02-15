@@ -2,14 +2,14 @@ var globals = require('rollup-plugin-node-globals');
 var rollup = require( 'rollup' );
 var builtins = require('..');
 rollup.rollup({
-  entry: 'browser-test/main.js',
+  input: 'browser-test/main.js',
   plugins: [
     builtins(),
     globals(),
-  ]
-}).then( function ( bundle ) {
+  ],
+}).then( function (bundle) {
   return bundle.write({
-    dest: 'browser-test/dist/bundle.js'
+    file: 'browser-test/dist/bundle.js',
   });
 }).then(function () {
   console.log('done');
