@@ -11,7 +11,7 @@
     "prebuild": "rm -rf dist && mkdir dist",
     "prepublish": "npm test",
     "browser-test": "serve browser-test/dist",
-    "prebrowser-test": "rm browser-test/dist/bundle.js && npm run build && node ./browser-test/index.js"
+    "prebrowser-test": "rm -rf browser-test/dist/bundle.js && npm run build && node ./browser-test/index.js"
   },
   "keywords": [
     "rollup-plugin"
@@ -20,21 +20,23 @@
   "license": "ISC",
   "dependencies": {
     "browserify-fs": "^1.0.0",
-    "buffer-es6": "^4.9.2",
-    "crypto-browserify": "^3.11.0",
-    "process-es6": "^0.11.2"
+    "buffer-es6": "^4.9.3",
+    "crypto-browserify": "^3.12.1",
+    "process-es6": "^0.11.6"
   },
   "devDependencies": {
-    "babel-preset-es2015-rollup": "^3.0.0",
-    "debug": "^2.2.0",
-    "mocha": "^3.0.2",
-    "rollup": "^0.37.0",
-    "rollup-plugin-babel": "^2.4.0",
-    "rollup-plugin-node-globals": "^1.0.7",
-    "serve": "^2.0.0"
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.26.9",
+    "@rollup/plugin-babel": "^6.0.4",
+    "debug": "^4.4.0",
+    "mocha": "^11.1.0",
+    "rollup": "^4.34.7",
+    "rollup-plugin-node-globals": "^1.4.0",
+    "serve": "^14.2.4"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:calvinmetcalf/rollup-plugin-node-builtins.git"
-  }
+  },
+  "packageManager": "yarn@4.6.0"
 }
