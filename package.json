@@ -36,5 +36,6 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:calvinmetcalf/rollup-plugin-node-builtins.git"
-  }
+  },
+  "packageManager": "yarn@4.6.0"
 }
