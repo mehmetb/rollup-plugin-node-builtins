@@ -1,8 +1,8 @@
-rollup-plugin-node-builtins
+@mehmetb/rollup-plugin-node-builtins
 ===
 
 ```
-npm install --save-dev rollup-plugin-node-builtins
+npm install --save-dev @mehmetb/rollup-plugin-node-builtins
 ```
 
 Allows the node builtins to be `require`d/`import`ed. Doing so gives the proper shims to support modules that were designed for Browserify, some modules require [rollup-plugin-node-globals](https://github.com/calvinmetcalf/rollup-plugin-node-globals).
@@ -63,7 +63,7 @@ Not all included modules rollup equally, streams (and by extension anything that
 config for using this with something simple like events or querystring
 
 ```js
-import builtins from 'rollup-plugin-node-builtins';
+import builtins from '@mehmetb/rollup-plugin-node-builtins';
 rollup({
   entry: 'main.js',
   plugins: [
@@ -84,10 +84,10 @@ import {inherits} from 'util';
 Config for something more complicated like http
 
 ```js
-import builtins from 'rollup-plugin-node-builtins';
+import builtins from '@mehmetb/rollup-plugin-node-builtins';
 import globals from 'rollup-plugin-node-globals';
 rollup({
-  entry: 'main.js',
+  input: 'main.js',
   plugins: [
     globals(),
     builtins()
