@@ -25,7 +25,7 @@ jobs:
           yarn prebuild
           yarn build
         name: Build
-      - run: npm publish --access public --dry-run
+      - run: npm publish --access public
         name: Publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
