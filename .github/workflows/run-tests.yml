@@ -1,0 +1,47 @@
+name: Run Tests
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "src/**"
+      - .yarn/cache/**
+      - "tests/**"
+      - rollup.config.js
+      - build-constants.js
+      - .babelrc
+  pull_request:
+    branches: ["main"]
+    paths:
+      - "src/**"
+      - .yarn/cache/**
+      - "tests/**"
+      - rollup.config.js
+      - build-constants.js
+      - .babelrc
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x, 24.x]
+        os: [ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v4
+      name: Checkout @mehmetb/rollup-plugin-node-builtins
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      run: yarn install
+
+    - name: Run tests
+      run: |
+        yarn pretest
+        yarn test
