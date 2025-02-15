@@ -1,2 +1,9 @@
-test
+src/
+test/
+browser-test/
+.github/
 .babelrc
+.yarn*
+.eslintrc
+build-constants.js
+rollup.config.js
