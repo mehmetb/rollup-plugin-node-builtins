@@ -19,6 +19,7 @@ on:
       - rollup.config.js
       - build-constants.js
       - .babelrc
+  workflow_dispatch:
 
 jobs:
   build:
