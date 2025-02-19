@@ -18,11 +18,19 @@ var files = [
   'zlib.js',
   'domain.js',
 ];
+
+function onwarn(warning, rollupWarn) {
+  if (warning.code !== 'CIRCULAR_DEPENDENCY') {
+    rollupWarn(warning)
+  }
+}
+
 describe('rollup-plugin-node-builtins', function() {
   files.forEach(function(file) {
     it('works with ' + file, function(done) {
       var config = {
         input: 'test/examples/' + file,
+        onwarn,
         plugins: [
           builtins()
         ]
