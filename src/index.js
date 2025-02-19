@@ -30,7 +30,6 @@ libs.set('zlib', require.resolve(join('..', 'src', 'es6', 'zlib')));
 libs.set('tty', require.resolve(join('..', 'src', 'es6', 'tty')));
 libs.set('domain', require.resolve(join('..', 'src', 'es6', 'domain')));
 
-const CRYPTO_PATH = require.resolve('crypto-browserify');
 const FS_PATH = require.resolve('browserify-fs');
 const EMPTY_PATH = require.resolve(join('..', 'src', 'es6', 'empty'));
 
@@ -50,9 +49,6 @@ export default function (opts) {
   opts = opts || {};
   let cryptoPath = EMPTY_PATH;
   let fsPath = EMPTY_PATH;
-  if (opts.crypto) {
-    cryptoPath = CRYPTO_PATH;
-  }
   if (opts.fs) {
     fsPath = FS_PATH;
   }
