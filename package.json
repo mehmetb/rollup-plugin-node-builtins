@@ -1,6 +1,6 @@
 {
   "name": "@mehmetb/rollup-plugin-node-builtins",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "description": "use node builtins in browser with rollup",
   "main": "dist/rollup-plugin-node-builtins.cjs.js",
   "jsnext:main": "dist/rollup-plugin-node-builtins.es6.js",
@@ -21,7 +21,6 @@
   "dependencies": {
     "browserify-fs": "^1.0.0",
     "buffer-es6": "^4.9.3",
-    "crypto-browserify": "^3.12.1",
     "process-es6": "^0.11.6"
   },
   "devDependencies": {
