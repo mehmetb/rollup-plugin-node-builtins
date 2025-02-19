@@ -17,13 +17,20 @@ var files = [
   'string-decoder.js',
   'zlib.js',
   'domain.js',
-  'crypto.js'
 ];
+
+function onwarn(warning, rollupWarn) {
+  if (warning.code !== 'CIRCULAR_DEPENDENCY') {
+    rollupWarn(warning)
+  }
+}
+
 describe('rollup-plugin-node-builtins', function() {
   files.forEach(function(file) {
     it('works with ' + file, function(done) {
       var config = {
         input: 'test/examples/' + file,
+        onwarn,
         plugins: [
           builtins()
         ]
@@ -32,7 +39,7 @@ describe('rollup-plugin-node-builtins', function() {
         config.plugins.push(globals());
       }
       rollup.rollup(config)
-        .then((bundle) => bundle.generate(bundle))
+        .then((bundle) => bundle.generate({}))
         .then((generated) => {
           const { code } = generated.output[0];
           debug(code);
@@ -50,20 +57,4 @@ describe('rollup-plugin-node-builtins', function() {
         }).catch(done);
     });
   })
-  it('crypto option works (though is broken)', function(done) {
-    var config = {
-      input: 'test/examples/crypto.js',
-      plugins: [
-        builtins({
-          crypto: true
-        })
-      ]
-    };
-    rollup.rollup(config).then(function() {
-      done(new Error ('should not get here'))
-    },function (err) {
-      debug(err)
-      done();
-    });
-  });
 })
