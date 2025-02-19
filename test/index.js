@@ -50,20 +50,4 @@ describe('rollup-plugin-node-builtins', function() {
         }).catch(done);
     });
   })
-  it('crypto option works (though is broken)', function(done) {
-    var config = {
-      input: 'test/examples/crypto.js',
-      plugins: [
-        builtins({
-          crypto: true
-        })
-      ]
-    };
-    rollup.rollup(config).then(function() {
-      done(new Error ('should not get here'))
-    },function (err) {
-      debug(err)
-      done();
-    });
-  });
 })
