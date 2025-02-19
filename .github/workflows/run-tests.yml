@@ -44,6 +44,4 @@ jobs:
       run: yarn install
 
     - name: Run tests
-      run: |
-        yarn pretest
-        yarn test
+      run: npm run test
