@@ -47,7 +47,6 @@ libs.set('tls', EMPTY_PATH);
 
 export default function (opts) {
   opts = opts || {};
-  let cryptoPath = EMPTY_PATH;
   let fsPath = EMPTY_PATH;
   if (opts.fs) {
     fsPath = FS_PATH;
@@ -58,9 +57,6 @@ export default function (opts) {
     }
     if (libs.has(importee)) {
       return libs.get(importee);
-    }
-    if (importee === 'crypto') {
-      return cryptoPath;
     }
     if (importee === 'fs') {
       return fsPath;
