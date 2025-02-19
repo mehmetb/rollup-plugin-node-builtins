@@ -17,7 +17,6 @@ var files = [
   'string-decoder.js',
   'zlib.js',
   'domain.js',
-  'crypto.js'
 ];
 describe('rollup-plugin-node-builtins', function() {
   files.forEach(function(file) {
@@ -32,7 +31,7 @@ describe('rollup-plugin-node-builtins', function() {
         config.plugins.push(globals());
       }
       rollup.rollup(config)
-        .then((bundle) => bundle.generate(bundle))
+        .then((bundle) => bundle.generate({}))
         .then((generated) => {
           const { code } = generated.output[0];
           debug(code);
