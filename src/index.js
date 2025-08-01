@@ -30,7 +30,6 @@ libs.set('zlib', require.resolve(join('..', 'src', 'es6', 'zlib')));
 libs.set('tty', require.resolve(join('..', 'src', 'es6', 'tty')));
 libs.set('domain', require.resolve(join('..', 'src', 'es6', 'domain')));
 
-const FS_PATH = require.resolve('browserify-fs');
 const EMPTY_PATH = require.resolve(join('..', 'src', 'es6', 'empty'));
 
 // not shimmed
@@ -48,9 +47,6 @@ libs.set('tls', EMPTY_PATH);
 export default function (opts) {
   opts = opts || {};
   let fsPath = EMPTY_PATH;
-  if (opts.fs) {
-    fsPath = FS_PATH;
-  }
   return {resolveId(importee) {
     if (importee && importee.slice(-1) === '/') {
       importee === importee.slice(0, -1);
@@ -59,7 +55,7 @@ export default function (opts) {
       return libs.get(importee);
     }
     if (importee === 'fs') {
-      return fsPath;
+      throw new Error('The "fs" module is not supported by @mehmetb/rollup-plugin-node-builtins.');
     }
   }};
 }
